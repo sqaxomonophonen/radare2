@@ -1214,6 +1214,7 @@ R_API int r_core_init(RCore *core) {
 	/* default noreturn functions */
 	/* osx */
 	r_anal_noreturn_add (core->anal, "sym.imp.__assert_rtn", UT64_MAX);
+	r_anal_noreturn_add (core->anal, "sym.imp.abort", UT64_MAX);
 	r_anal_noreturn_add (core->anal, "sym.imp.exit", UT64_MAX);
 	r_anal_noreturn_add (core->anal, "sym.imp._exit", UT64_MAX);
 	r_anal_noreturn_add (core->anal, "sym.imp.__stack_chk_fail", UT64_MAX);
@@ -1351,6 +1352,9 @@ R_API RCore *r_core_fini(RCore *c) {
 	r_agraph_free (c->graph);
 	R_FREE (c->asmqjmps);
 	sdb_free (c->sdb);
+	r_core_log_free (c->log);
+	r_parse_free (c->parser);
+	free (c->times);
 	return NULL;
 }
 
