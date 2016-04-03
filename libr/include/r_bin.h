@@ -585,6 +585,7 @@ extern RBinPlugin r_bin_plugin_psxexe;
 extern RBinPlugin r_bin_plugin_spc700;
 extern RBinPlugin r_bin_plugin_vsf;
 extern RBinPlugin r_bin_plugin_dyldcache;
+extern RBinPlugin r_bin_plugin_asf;
 
 #ifdef __cplusplus
 }
